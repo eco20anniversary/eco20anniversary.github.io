@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=0" name="viewport">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+
+
+
+<title>伊希歐之夢同人遊戲-我要去上城</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+
+body {
+	overflow: hidden; /*[to unlock scroll:overflow: visible;]*/
+
+}
+
+html{
+
+touch-action:manipulation;
+}
+
+</style>
+</head>
+<body >
+
+
+<iframe id="f" src="game.html" style="position:fixed;border:none;zIndex:0;"scrolling="no" ></iframe>
+<button id="b" hidden style="top:0;left:0;position:fixed" onclick="startmusic()" >music on</button>
+
+
+<script>
+var usetime=50;
+var i=1;
+	function rotatemobile(){
+
+document.getElementById("f").width="800px";
+	document.getElementById("f").height="600px";
+
+document.getElementById("f").style.left=(document.body.scrollWidth-800)/2+"px";
+ document.getElementById("f").style.top=(document.body.scrollHeight-600)/2+"px";
+if(document.body.scrollWidth<document.body.scrollHeight){
+var wid=document.body.scrollWidth;
+document.getElementById("b").innerHTML="a"
+//if (document.body.scrollWidth<800)
+document.getElementById("f").style.transform="scale("+wid/800+")";
+}
+else
+{
+var heig=document.body.scrollHeight;
+document.getElementById("b").innerHTML="b";
+document.getElementById("f").style.transform="scale("+heig/600+")";
+}
+
+//setTimeout(rotatemobile,1);
+
+}
+function startmusic(){
+document.getElementById("b").innerHTML=""+document.body.scrollHeight+" "+document.body.scrollWidth;
+}
+
+
+window.addEventListener("resize", function(){
+    //動作
+
+    rotatemobile();
+},false);
+window.onorientationchange = function() {
+ // rotatemobile();
+};
+rotatemobile();
+</script>
+</body>
+</html>

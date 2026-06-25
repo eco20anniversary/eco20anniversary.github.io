@@ -1,0 +1,325 @@
+
+<html lang="zh-Hant">
+<head>
+
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=0.5,maximum-scale=0.5,miimum-scale=0.5,user-scalable=0" name="viewport">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+
+<title>伊希歐之夢同人遊戲-我要去上城</title>
+
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+
+html{
+
+touch-action:manipulation;
+}
+
+
+body{
+ -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+background-color:black;
+
+
+}
+*{
+ -webkit-user-select: none;
+ user-select: none;
+ -webkit-touch-callout: none;
+}
+</style>
+
+
+</head>
+<body ondblclick="">
+<audio id="bgmusic" src="music/bgm_1000.mp3"  autoplay loop></audio>
+<audio id="semusic" src="music/se_2030.wav"   ></audio>
+
+<div style="top:0;left:0;width:800;height:600;position:fixed;overflow:hidden">
+
+<div id="divBg" style="left:-800;position:absolute">
+
+
+
+
+
+
+<img id="imgBg" onclick="event1oc('')" src="image/town1.jpg">
+<img id="imgBgEnd" src="" hidden>
+
+
+
+<img id="imgnpc1select" src="image/select.gif" style="width:120px;height:60px;top:460;left:890;position:absolute" hidden>
+<img id="imgnpc1" src="image/npc/rubbishbin.png"  onclick="event1();"  style="top:350;left:900;width:100;height:150;position:absolute">
+<img id="imgnpc2" src="image/npc/woodenbox.png"  onclick="event2();"  style="top:420;left:1400;width:100;height:120;position:absolute">
+
+
+<button id="eventEnd" onclick="" style="opacity:0;position:absolute;top:235;left:1110;width:180px;height:100px">AAA</button>
+
+
+</div>
+<button id="btnleft" style="opacity:0.5;height:600px;width:60px;top:0;left:0;position:absolute;background-color:white" onclick="goLeft()"><</button>
+<button id="btnright" style="opacity:0.5;height:600px;width:60px;top:0;left:740;position:absolute;background-color:white" onclick="goRight()">></button>
+
+</div>
+
+<img id="imgbag" src="image/system/bag.png" style="position:fixed;width:400px;height:60px;top:20;left:200">
+<img id="imgbagitem1" src="image/item/no.png" style="position:fixed;width:40px;height:40px;top:27;left:300;border-color:#D9AD66;border-style:solid;border-width:3px">
+<img id="imgbagitem2" src="image/item/no.png" style="position:fixed;width:40px;height:40px;top:27;left:360;border-color:#D9AD66;border-style:solid;border-width:3px">
+<img id="imgbagitem3" src="image/item/no.png" style="position:fixed;width:40px;height:40px;top:27;left:420;border-color:#D9AD66;border-style:solid;border-width:3px">
+<img id="imgbagitem4" src="image/item/no.png" style="position:fixed;width:40px;height:40px;top:27;left:480;border-color:#D9AD66;border-style:solid;border-width:3px">
+<img id="imgbagitem5" src="image/item/no.png" style="position:fixed;width:40px;height:40px;top:27;left:540;border-color:#D9AD66;border-style:solid;border-width:3px">
+
+
+
+<div id="divcreateplayer" style="top:0;left:0;width:800;height:600;position:fixed;overflow:hidden"  >
+
+
+
+<img id="imgCreatePlayer"  style="top:0;left:0;width:800px;height:600px;position:absolute" onclick="" src="image/interface/createplayer.png" >
+<label style="width:60px;height:30px;top:300;left:0;position:absolute;text-align:center">性名</label>
+<input  value="" id="txtcreateplayername" type="text" style="width:160px;height:30px;top:300;left:60;position:absolute;text-align:center" />
+
+<label style="width:60px;height:30px;top:350;left:0;position:absolute;text-align:center">種族</label>
+<button  id="btnselectleftrace" style="width:30px;height:30px;top:350;left:60;position:absolute" onclick="SelectLeft()" ><</button>
+
+<button  id="btnselectrightrace" style="width:30px;height:30px;top:350;left:190;position:absolute" onclick="SelectRight()" >></button>
+<input  value="埃米爾" id="txtcreateplayerrace" type="text" style="width:100px;height:30px;top:350;left:90;position:absolute;text-align:center"  disabled/>
+
+<label style="width:60px;height:30px;top:400;left:0;position:absolute;text-align:center">性別</label>
+<button  id="btnselectleftsex" style="width:30px;height:30px;top:400;left:60;position:absolute" onclick="SelectLeftSex()" ><</button>
+
+<button  id="btnselectrightsex" style="width:30px;height:30px;top:400;left:190;position:absolute" onclick="SelectRightSex()" >></button>
+<input  value="女" id="txtcreateplayersex" type="text" style="width:100px;height:30px;top:400;left:90;position:absolute;text-align:center"  disabled/>
+
+<button style="width:50px;height:30px;top:450;left:30;position:absolute;background-color:#0E4876;border:2px solid #C9BA7F;text-shadow:-1px -1px 0 red, 1px 1px 0 red, -1px -1px 0 red, 1px 1px 0 red;color:yellow;" onclick="createplayer()" >開始</button>
+
+
+</div>
+
+<img id="imgcharstay" src="image/player/1f.gif" style="position:fixed;width:200px;height:280px;top:300;left:300">
+<img id="imgcharleftrun" src="image/player/1fl.gif" hidden style="position:fixed;width:200px;height:280px;top:300;left:300">
+<img id="imgcharrightrun" src="image/player/1fr.gif" hidden style="position:fixed;width:200px;height:280px;top:300;left:300">
+
+<div id="commun" style="top:90;left:200;width:400;height:500;position:fixed;overflow:hidden"  hidden>
+<img id="compic" src="" style="width:400px;height:500px;top:0;left:0;position:absolute" >
+<img id="comnext" src="" style="width:91px;height:33px;top:400;left:270;position:absolute" onclick="comboxnext()">
+<label id="comlabel" style="width:360px;height:300px;top:100;left:50;position:absolute;font-size:30px;" ><b  style="color:white">aaaa</b></label>
+</div>
+
+
+
+
+
+<img id="imgTitle"  style="top:0;left:0;width:800px;height:600px;position:fixed" src="image/interface/title.jpg" fetchpriority="high">
+<div id="divlogin" style="top:0;left:0;width:800;height:600;position:fixed;overflow:hidden"  >
+<button  id="btnlogin" style="width:100px;height:30px;top:400;left:350;position:absolute" onclick="login()" >Login</button>
+
+</div>
+
+<button id="b" style="top:0;left:0;position:fixed" onclick="startmusic()" hidden>music on</button>
+
+
+<script>
+positionstatus=1;
+musicbg=document.getElementById('bgmusic');
+musicse=document.getElementById('semusic');
+btnb=document.getElementById('b');
+divbg=document.getElementById('divBg');
+var itembag=["","","","","",""];
+
+
+imgbagitem1=document.getElementById('imgbagitem1');
+positionx=-800;
+speed=10;
+
+
+document.onclick=function(){
+playbgmusic();
+
+}
+
+
+
+
+
+document.addEventListener("touchend",e=>{
+playmusic();
+
+});
+
+
+function animationGoLeft(){
+
+positionx=positionx+10;
+
+divbg.style.left=positionx+"px";
+
+
+}
+
+function animationGoRight(){
+
+positionx=positionx-10;
+divbg.style.left=positionx+"px";
+
+
+}
+
+function disablebuttonLR(){
+document.getElementById('btnleft').disabled=false;
+document.getElementById('btnright').disabled=false;
+}
+
+function hiddenrunleft(){
+document.getElementById('imgcharstay').hidden=false;
+document.getElementById('imgcharleftrun').hidden=true;
+}
+function hiddenrunright(){
+document.getElementById('imgcharstay').hidden=false;
+document.getElementById('imgcharrightrun').hidden=true;
+}
+
+function goLeft(){
+document.getElementById('imgcharstay').hidden=true;
+document.getElementById('imgcharleftrun').hidden=false;
+setTimeout(hiddenrunleft,speed*80);
+if (positionstatus==1){
+
+positionstatus=0;
+document.getElementById('btnleft').hidden=true;
+document.getElementById('btnright').disabled=true;
+document.getElementById('btnleft').disabled=true;
+setTimeout(disablebuttonLR,speed*80);
+for (i=0;i<=70;i++){
+
+
+setTimeout(animationGoLeft,speed*i);
+
+}
+}
+if (positionstatus==2){
+
+positionstatus=1;
+document.getElementById('btnright').hidden=false;
+document.getElementById('btnright').disabled=true;
+document.getElementById('btnleft').disabled=true;
+setTimeout(disablebuttonLR,speed*80);
+for (i=0;i<=70;i++){
+
+setTimeout(animationGoLeft,speed*i);
+
+
+
+}
+
+}
+}
+
+function goRight(){
+document.getElementById('imgcharstay').hidden=true;
+document.getElementById('imgcharrightrun').hidden=false;
+setTimeout(hiddenrunright,speed*80);
+if (positionstatus==1){
+
+positionstatus=2;
+document.getElementById('btnright').hidden=true;
+document.getElementById('btnleft').disabled=true;
+document.getElementById('btnright').disabled=true;
+setTimeout(disablebuttonLR,speed*80);
+for (i=0;i<=70;i++){
+
+setTimeout(animationGoRight,speed*i);
+
+}
+
+}
+if (positionstatus==0){
+
+positionstatus=1;
+document.getElementById('btnleft').hidden=false;
+document.getElementById('btnleft').disabled=true;
+document.getElementById('btnright').disabled=true;
+setTimeout(disablebuttonLR,speed*80);
+for (i=0;i<=70;i++){
+
+setTimeout(animationGoRight,speed*i);
+
+}
+}
+}
+
+function startmusic(){
+
+playbgmusic();
+}
+
+
+
+function playbgmusic(){
+
+//btnb.innerHTML="music off";
+musicbg.play();
+
+}
+
+
+function playsemusic(){
+
+//btnb.innerHTML="music off";
+musicse.play();
+
+}
+
+
+
+
+
+
+
+window.addEventListener('load',function(){
+
+});
+
+
+</script>
+<script src="function/event/event1.js">
+
+</script>
+
+
+</script>
+<script src="function/communication/combox.js">
+
+</script>
+
+</script>
+<script src="function/communication/comevent01.js">
+
+</script>
+
+</script>
+<script src="function/items.js">
+
+</script>
+
+
+</script>
+<script src="function/control/login.js">
+
+</script>
+
+
+</script>
+<script src="function/control/createplayer.js">
+
+</script>
+</body></html>
